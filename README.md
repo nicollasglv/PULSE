@@ -1,2 +1,489 @@
-# PULSE
-A PULSE é uma empresa digital focada em ajudar iniciantes a entrar no mundo dos investimentos em criptomoedas de forma simples, segura e organizada. Nosso objetivo é facilitar o acesso ao mercado de criptomoedas para pessoas que não têm conhecimento técnico, não sabem por onde começar ou têm medo de investir sozinhas. A 
+
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PULSE - Investimentos em Criptomoedas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #0a0a0a, #1a0033, #0a0a0a);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Animação Logo */
+        .logo-container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-animation {
+            font-size: 8rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #00ff88, #00bfff, #ff00ff, #00ff88);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: wave 3s ease-in-out infinite, glow 2s ease-in-out infinite alternate;
+            text-align: center;
+            filter: drop-shadow(0 0 20px #00ff88);
+        }
+
+        @keyframes wave {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 20px #00ff88); }
+            to { filter: drop-shadow(0 0 40px #00ff88) drop-shadow(0 0 60px #00bfff); }
+        }
+
+        /* Botão WhatsApp Flutuante */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            border: none;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+            animation: float 3s ease-in-out infinite;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.7);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Container Principal */
+        .main-content {
+            display: none;
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Quadrado Roxo Neon - Redes Sociais */
+        .social-section {
+            background: linear-gradient(145deg, #8B00FF, #4B0082);
+            border: 2px solid #FF00FF;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 50px 0;
+            box-shadow: 0 0 50px rgba(255, 0, 255, 0.3);
+            animation: neonPulse 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes neonPulse {
+            from { box-shadow: 0 0 50px rgba(255, 0, 255, 0.3); }
+            to { box-shadow: 0 0 70px rgba(255, 0, 255, 0.6); }
+        }
+
+        .social-title {
+            color: #FF00FF;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px #FF00FF;
+        }
+
+        .social-item {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .social-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(10px);
+        }
+
+        .social-icon {
+            font-size: 2.5rem;
+            margin-right: 20px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, #FF00FF, #00FFFF);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+        }
+
+        .social-info h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .social-link {
+            color: #00FF88;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .social-link:hover {
+            color: #00FFFF;
+        }
+
+        /* Seção Parceria */
+        .partnership-section {
+            display: flex;
+            gap: 40px;
+            margin: 80px 0;
+            align-items: center;
+        }
+
+        .partnership-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            flex: 1;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .partnership-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s;
+        }
+
+        .partnership-card:hover::before {
+            animation: shine 1s ease-in-out;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+
+        .lamp-icon {
+            font-size: 4rem;
+            color: #FFD700;
+            text-align: center;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 20px #FFD700);
+            animation: flicker 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            100% { opacity: 0.8; }
+        }
+
+        .partnership-title {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .partnership-text {
+            color: #555;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .enter-btn {
+            display: block;
+            width: 200px;
+            margin: 30px auto 0;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #00FF88, #00BFFF);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .enter-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 255, 136, 0.4);
+        }
+
+        /* Seção Saiba Mais */
+        .pulse-info {
+            cursor: pointer;
+            color: #00FF88;
+            font-size: 1.5rem;
+            text-align: center;
+            margin: 60px 0;
+            padding: 20px;
+            border: 2px dashed #00FF88;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .pulse-info:hover {
+            background: rgba(0, 255, 136, 0.1);
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.5);
+        }
+
+        .pulse-details {
+            display: none;
+            background: linear-gradient(145deg, #1a1a2e, #16213e);
+            border: 2px solid #00FF88;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 30px auto;
+            max-width: 800px;
+            color: white;
+            box-shadow: 0 0 50px rgba(0, 255, 136, 0.3);
+        }
+
+        /* Contato WhatsApp */
+        .contact-section {
+            background: #000;
+            border: 2px solid #25D366;
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            margin: 80px 0;
+            box-shadow: 0 0 50px rgba(37, 211, 102, 0.5);
+        }
+
+        .whatsapp-logo {
+            font-size: 4rem;
+            color: #25D366;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 20px #25D366);
+        }
+
+        .phone-number {
+            font-size: 2.5rem;
+            color: #25D366;
+            font-weight: bold;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .contact-title {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #888;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 80px;
+        }
+
+        .copyright {
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .logo-animation {
+                font-size: 4rem;
+            }
+            
+            .partnership-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .social-title {
+                font-size: 2rem;
+            }
+            
+            .whatsapp-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
+
+        .show {
+            display: block !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animação Logo -->
+    <div class="logo-container" id="logoContainer">
+        <div class="logo-animation" id="logoText">PULSE</div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <div class="main-content" id="mainContent">
+        <!-- Redes Sociais -->
+        <div class="social-section">
+            <h2 class="social-title">REDES SOCIAIS</h2>
+            <div class="social-item">
+                <div class="social-icon">
+                    <i class="fab fa-tiktok"></i>
+                </div>
+                <div class="social-info">
+                    <h3>TikTok</h3>
+                    <a href="https://tiktok.com/@pulseoficialimvestimento" target="_blank" class="social-link">@pulseoficialimvestimento</a>
+                </div>
+            </div>
+            <div class="social-item">
+                <div class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <div class="social-info">
+                    <h3>Instagram</h3>
+                    <a href="https://instagram.com/puls_eoficial" target="_blank" class="social-link">@puls_eoficial</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção Parceria -->
+        <div class="partnership-section">
+            <div class="partnership-card">
+                <div class="lamp-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h2 class="partnership-title">Parceria<br><span style="color: #00FF88; font-size: 1.2em;">PEDE IDEIAS</span></h2>
+                <p class="partnership-text">
+                    O Pede a Ideia é um site feito para ajudar pessoas que precisam de ideias para trabalhos escolares, projetos, apresentações, negócios ou qualquer coisa que precise começar do zero.<br><br>
+                    A ideia do site é simples: quando a pessoa não sabe o que fazer, ela entra no site e encontra uma ideia para começar.<br><br>
+                    O site ajuda principalmente em:<br>
+                    - Ideias para trabalhos escolares<br>
+                    - Ideias de projetos<br>
+                    - Ideias de negócios<br>
+                    - Ideias criativas<br>
+                    - Como começar algo do zero<br>
+                    - Inspirações para criar coisas novas
+                </p>
+                <a href="https://nicollasglv.github.io/pede-ideias/" target="_blank" class="enter-btn">ENTRA NO SITE</a>
+            </div>
+        </div>
+
+        <!-- Saiba Mais sobre PULSE -->
+        <div class="pulse-info" onclick="togglePulseInfo()">
+             Saiba mais sobre PULSE
+        </div>
+        <div class="pulse-details" id="pulseDetails">
+            <h3 style="color: #00FF88; margin-bottom: 20px; font-size: 1.8rem;">Sobre a PULSE</h3>
+            <p style="line-height: 1.8; font-size: 1.1rem;">
+                A PULSE é uma empresa digital que ajuda iniciantes a investir em criptomoedas de forma <strong>segura, organizada e transparente</strong>.<br><br>
+                <strong>Nossa missão:</strong> simplificar o processo de investimento, registrando cada operação e garantindo clareza e confiança para cada cliente.<br><br>
+                <strong>Taxas justas:</strong> 10% apenas sobre o lucro obtido. Em caso de prejuízo, nenhuma taxa é cobrada.<br><br>
+                <strong>Transparência total:</strong> Cada investimento é registrado e comprovado, e o cliente pode solicitar saque a qualquer momento.
+            </p>
+        </div>
+
+        <!-- Contato WhatsApp -->
+        <div class="contact-section">
+            <div class="whatsapp-logo">
+                <i class="fab fa-whatsapp"></i>
+            </div>
+            <div class="phone-number">55 11 97987-2476</div>
+            <h2 class="contact-title">CONTATO</h2>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p class="copyright">© 2026 PULSE – Todos os direitos reservados</p>
+        </div>
+    </div>
+
+    <!-- Botão WhatsApp Flutuante -->
+    <button class="whatsapp-btn" onclick="sendWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+    </button>
+
+    <script>
+        // Animação inicial do logo
+        setTimeout(() => {
+            document.getElementById('logoContainer').style.opacity = '0';
+            document.getElementById('mainContent').classList.add('show');
+            document.body.style.overflow = 'auto';
+        }, 4000);
+
+        // Enviar mensagem WhatsApp
+        function sendWhatsApp() {
+            const message = "Olá! Acessei seu site PULSE e estou interessado.";
+            const phone = "5511979872476";
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+            window.open(url, '_blank');
+        }
+
+        // Toggle informações PULSE
+        function togglePulseInfo() {
+            const details = document.getElementById('pulseDetails');
+            if (details.style.display === 'block') {
+                details.style.display = 'none';
+            } else {
+                details.style.display = 'block';
+            }
+        }
+
+        // Suavizar scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
